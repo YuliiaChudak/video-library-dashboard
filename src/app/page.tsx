@@ -1,5 +1,3 @@
 export default function Home() {
-  return (
-      <section>Initial set up</section>
-  );
+  return <section>Initial set up</section>;
 }
