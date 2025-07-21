@@ -50,9 +50,7 @@ jobs:
         run: pnpm format:ci
 
       - name: Run tests and generate JUnit report
-        run: pnpm test:ci
-        env:
-          JEST_JUNIT_OUTPUT: ./test-results/junit.xml
+        run: pnpm test
 
       - name: Upload test report
         uses: actions/upload-artifact@v4
