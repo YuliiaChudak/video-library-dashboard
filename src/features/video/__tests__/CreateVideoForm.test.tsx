@@ -11,20 +11,6 @@ import * as db from '@/db/videos';
 import '@testing-library/jest-dom';
 
 jest.mock('@/db/videos');
-jest.mock('@/prisma', () => ({
-  PrismaClient: jest.fn().mockImplementation(() => ({
-    video: {
-      findMany: jest.fn(),
-      create: jest.fn(),
-    },
-  })),
-}));
-jest.mock('@/components/query/QueryProvider', () => ({
-  QueryProvider: ({ children }: { children: React.ReactNode }) => children,
-  queryClient: {
-    invalidateQueries: jest.fn(),
-  },
-}));
 jest.mock('next/navigation', () => ({
   useRouter: () => ({
     push: jest.fn(),
