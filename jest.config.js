@@ -7,7 +7,8 @@ const createJestConfig = nextJest({
 const customJestConfig = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/$1',
+    '^@/(.*)$': '<rootDir>/src/$1',
+    '^@/prisma$': '<rootDir>/generated/prisma',
   },
   testEnvironment: 'jest-environment-jsdom',
 };
