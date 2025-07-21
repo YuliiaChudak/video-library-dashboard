@@ -1,0 +1,51 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Video {
+  id            String      @id @default(uuid()) @db.Uuid
+  title         String      @db.VarChar(256)
+  duration      Int
+  thumbnail_url String      @db.VarChar(1024)
+  views         Int         @default(0)
+  created_at    DateTime    @default(now())
+  updated_at    DateTime    @updatedAt
+
+  videoTags VideoTag[]
+
+  @@map("videos")
+}
+
+model Tag {
+  id         String    @id @default(uuid()) @db.Uuid
+  name       String    @unique @db.VarChar(128)
+  created_at DateTime  @default(now())
+  updated_at DateTime  @updatedAt
+
+  videoTags VideoTag[]
+
+  @@map("tags")
+}
+
+model VideoTag {
+  video_id String @db.Uuid
+  tag_id   String @db.Uuid
+
+  video Video @relation(fields: [video_id], references: [id], onDelete: Cascade)
+  tag   Tag   @relation(fields: [tag_id], references: [id], onDelete: Cascade)
+
+  @@id([video_id, tag_id])
+  @@map("video_tags")
+}

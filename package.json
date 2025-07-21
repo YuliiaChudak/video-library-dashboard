@@ -3,19 +3,28 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
     "build": "next build",
-    "start": "next start",
+    "dev": "next dev",
     "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "lint:strict": "eslint . --ext .ts,.tsx --max-warnings 0",
+    "db:dev:migrate": "prisma migrate dev",
+    "db:dev:studio": "prisma studio",
+    "db:prod:migrate": "prisma migrate deploy",
+    "db:seed": "pnpx ts-node --compiler-options '{\"module\":\"commonjs\"}' prisma/seed/main.ts",
     "format": "prettier --write .",
     "format:ci": "prettier --check .",
-    "type-check": "tsc --noEmit",
-    "test": "jest"
+    "format:fix": "prettier --write . --ignore-unknown",
+    "postinstall": "prisma generate",
+    "start": "pnpm db:dev:migrate && next start",
+    "test": "jest",
+    "test:ci": "jest --ci --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
+    "@prisma/client": "^6.12.0",
+    "next": "15.4.2",
     "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "next": "15.4.2"
+    "react-dom": "19.1.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -33,6 +42,7 @@
     "jest-environment-jsdom": "^30.0.4",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.6.14",
+    "prisma": "^6.12.0",
     "tailwindcss": "^4",
     "ts-jest": "^29.4.0",
     "typescript": "^5"
