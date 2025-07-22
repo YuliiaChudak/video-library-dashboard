@@ -18,14 +18,12 @@
 - [React (Next.js)](https://nextjs.org/) – Modern, scalable frontend framework.
 - [Node.js](https://nodejs.org/) – Backend runtime.
 - [Prisma](https://www.prisma.io/) – Type-safe ORM for database access.
-- [Zod](https://zod.dev/) – Type-safe schema validation for forms and backend logic.
+- [Zod](https://zod.dev/) – Schema validation for both client and server.
 - [PostgreSQL](https://www.postgresql.org/) – Relational database.
 - [Tailwind CSS](https://tailwindcss.com/) – Utility-first CSS for rapid UI.
 - [Jest](https://jestjs.io/) & [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) – Testing.
-- [React Query](https://tanstack.com/query/latest) – Data fetching and server state caching.
+- [React Query](https://tanstack.com/query/latest) – Data fetching and state caching.
 - [Docker](https://www.docker.com/) – Local database development.
-
-_These tools were chosen for their modern ecosystem, type safety, active community and rapid development capabilities._
 
 ---
 
@@ -39,7 +37,8 @@ _These tools were chosen for their modern ecosystem, type safety, active communi
 
 ### 2. Environment Setup
 
-- Copy `.env.example` to `.env` and fill in required values (e.g., `DATABASE_URL`).
+- Copy `.env.example` to `.env`.  
+  The `DATABASE_URL` value is already provided and ready to use.
 
 ### 3. Install Dependencies
 
@@ -56,8 +55,7 @@ docker compose -f develop/docker-compose.yaml up -d
 ### 5. Run Migrations & Seed Data
 
 ```sh
-pnpm db:dev:migrate
-pnpm db:seed
+pnpm db:dev:migrate && pnpm db:seed
 ```
 
 ### 6. Start the Development Server
@@ -88,7 +86,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 - **Form:** input for title (required), duration (required), tags (optional, 0 or more).
 - **Auto-set:** created_at, default/placeholder for thumbnail, duration, views.
-- **Validation:** client-side (Zod) and server-side.
+- **Validation:** Zod is used for schema validation on both client and server.
 - **Feedback:** disables submit button while submitting, shows errors if any.
 
 ### Data Flow
@@ -96,7 +94,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 - **No REST API layer:** The frontend directly calls backend/server functions (e.g., `getVideoListByCriteria`, `createVideo`) using Next.js server actions and React Query.
 - **React Query:** Handles data fetching and server state caching.
 - **Prisma:** Handles all database access and modeling.
-- **Zod:** Used for input validation and schema enforcement.
+- **Zod:** Used for input validation and schema enforcement on both client and server.
 
 ---
 
@@ -124,17 +122,16 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 - **No video details page/modal:** Focused on core flows.
 - **Error handling:** Basic, but user-friendly. (See below for future improvements.)
 - **Testing:** Only core flows are tested; more coverage would be added with more time.
-- **API:** Implemented as direct function calls, not HTTP endpoints. This is fast and type-safe for a monolithic Next.js app.
+- **API:** Data is fetched by directly calling backend functions from the frontend (no separate API endpoints). This is a common and efficient pattern in Next.js projects.
 
 ---
 
 ## 🚀 Future Improvements
 
-- Add full-text search with [OpenSearch](https://opensearch.org/) for better search experience.
+- Add [OpenSearch](https://opensearch.org/) for full-text search, advanced filtering, synonym and multi-language support.
 - Add pagination to video lists for scalability.
 - Add video detail view (modal or separate page).
-- **Further improve error handling and user feedback:**
-  - Add retry options for failed requests.
+- **Further improve user feedback:**
   - Show toast notifications for successful actions (e.g., video creation).
 - Add more comprehensive tests (unit, integration, e2e).
 - **Custom Not-Found Page:**  
@@ -144,12 +141,11 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## 🧪 Testing
 
-- **Jest & React Testing Library** are used for both backend and frontend tests.
-- **Examples included:**
-  - Video list fetching and mapping.
-  - Video creation and validation.
-- **Validation:**
-  - Zod schemas are tested for input validation.
+- **Jest** is used for backend and frontend tests.
+- **React Testing Library** is used for frontend component tests.
+- **Testing includes::**
+  - Server action for fetching and mapping the videos list.
+  - Creating a video and validating input.
 
 ---
 
