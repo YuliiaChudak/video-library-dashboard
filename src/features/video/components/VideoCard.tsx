@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { CalendarDaysIcon, EyeIcon } from '@heroicons/react/24/outline';
-import type { Video } from '@/features/video/types';
+import type { Video } from '@/db/types';
 import {
   formatDate,
   formatDuration,

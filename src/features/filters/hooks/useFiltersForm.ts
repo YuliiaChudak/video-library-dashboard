@@ -1,12 +1,9 @@
 import { usePathname, useSearchParams } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { useEffect } from 'react';
-import {
-  DefaultOrderValue,
-  QueryParamsNames,
-} from '@/features/filters/constants';
-import { useDebounce } from '@/features/filters/hooks/use-debounce';
-import type { SortOrder } from '@/features/video/types';
+import { DefaultOrderValue, QueryParamsNames } from '@/db/types';
+import { useDebounce } from '@/features/filters/hooks/useDebounce';
+import type { SortOrder } from '@/db/types';
 
 export interface FiltersFormValues {
   search: string;

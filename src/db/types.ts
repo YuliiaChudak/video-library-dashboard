@@ -9,8 +9,6 @@ export interface Video {
   tags: string[];
 }
 
-export type SortOrder = 'newest' | 'oldest';
-
 export const QueryParamsNames = {
   Search: 'search',
   Tags: 'tags',
@@ -23,3 +21,5 @@ export const OrderByValues = {
 } as const;
 
 export const DefaultOrderValue = OrderByValues.Newest;
+
+export type SortOrder = (typeof OrderByValues)[keyof typeof OrderByValues];
