@@ -56,7 +56,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: junit-report
-          path: ./test-results/junit.xml
+          path: ./junit.xml
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -80,6 +80,9 @@ jobs:
 
       - name: Prisma migrate
         run: pnpm db:dev:migrate
+
+      - name: Prisma generate
+        run: pnpm db:generate
 
       - name: DB seed
         run: pnpm db:seed
