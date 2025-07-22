@@ -1,18 +1,18 @@
 ## 📚 Table of Contents
 
-- [Tech Stack](#tech-stack)
-- [Setup Instructions](#setup-instructions)
-- [Features & Implementation](#features--implementation)
-- [Code Structure & Modularity](#code-structure--modularity)
-- [Assumptions & Trade-offs](#assumptions--trade-offs)
-- [Future Improvements](#future-improvements)
-- [Testing](#testing)
-- [Developer Experience & Workflow](#developer-experience--workflow)
-- [Tips for Reviewers](#tips-for-reviewers)
+- [🛠️ Tech Stack](#-tech-stack)
+- [📝 Setup Instructions](#-setup-instructions)
+- [🎬 Features & Implementation](#-features--implementation)
+- [📦 Code Structure & Modularity](#-code-structure--modularity)
+- [📘 Assumptions & Trade-offs](#-assumptions--trade-offs)
+- [🚀 Future Improvements](#-future-improvements)
+- [🧪 Testing](#-testing)
+- [👩‍💻 Developer Experience & Workflow](#-developer-experience--workflow)
+- [💡 Tips for Reviewers](#-tips-for-reviewers)
 
 ---
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 - [TypeScript](https://www.typescriptlang.org/) – Type safety across frontend and backend.
 - [React (Next.js)](https://nextjs.org/) – Modern, scalable frontend framework.
@@ -29,7 +29,7 @@ _These tools were chosen for their modern ecosystem, type safety, active communi
 
 ---
 
-## Setup Instructions
+## 📝 Setup Instructions
 
 ### 1. Prerequisites
 
@@ -70,7 +70,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## Features & Implementation
+## 🎬 Features & Implementation
 
 ### Video List Page
 
@@ -100,7 +100,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## Code Structure & Modularity
+## 📦 Code Structure & Modularity
 
 - **Logical organization:**
   - `src/db/` – Database access, types, and validation schemas.
@@ -117,7 +117,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## Assumptions & Trade-offs
+## 📘 Assumptions & Trade-offs
 
 - **No pagination:** All videos are returned in a single list for simplicity.
 - **Search:** Substring matching on the title (not full-text).
@@ -128,7 +128,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## Future Improvements
+## 🚀 Future Improvements
 
 - Add full-text search with [OpenSearch](https://opensearch.org/) for better search experience.
 - Add pagination to video lists for scalability.
@@ -142,7 +142,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## Testing
+## 🧪 Testing
 
 - **Jest & React Testing Library** are used for both backend and frontend tests.
 - **Examples included:**
@@ -153,7 +153,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## Developer Experience & Workflow
+## 👩‍💻 Developer Experience & Workflow
 
 - **Prettier** and **ESLint** are set up and enforced for consistent code style and formatting.
 - **TypeScript** is used throughout for type safety and better developer feedback.
@@ -170,7 +170,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## Tips for Reviewers
+## 💡 Tips for Reviewers
 
 - The codebase prioritizes clarity and maintainability.
 - Trade-offs and simplifications are documented above.
