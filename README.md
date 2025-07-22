@@ -1,6 +1,4 @@
----
-
-## 📚 Table of contents
+## 📚 Table of Contents
 
 - [Tech Stack](#tech-stack)
 - [Setup Instructions](#setup-instructions)
@@ -14,24 +12,24 @@
 
 ---
 
-## ✅ Tech stack
+## Tech Stack
 
-- [**TypeScript**](https://www.typescriptlang.org/) – Type safety across frontend and backend.
-- [**React (Next.js)**](https://nextjs.org/) – Modern, scalable frontend framework.
-- [**Node.js**](https://nodejs.org/) – Backend runtime.
-- [**Prisma**](https://www.prisma.io/) – Type-safe ORM for database access.
-- [**Zod**](https://zod.dev/) – Type-safe schema validation for forms and backend logic.
-- [**PostgreSQL**](https://www.postgresql.org/) – Relational database.
-- [**Tailwind CSS**](https://tailwindcss.com/) – Utility-first CSS for rapid UI.
-- [**Jest**](https://jestjs.io/) & [**React Testing Library**](https://testing-library.com/docs/react-testing-library/intro/) – Testing.
-- [**React Query**](https://tanstack.com/query/latest) – Data fetching and server state caching.
-- [**Docker**](https://www.docker.com/) – Local database development.
+- [TypeScript](https://www.typescriptlang.org/) – Type safety across frontend and backend.
+- [React (Next.js)](https://nextjs.org/) – Modern, scalable frontend framework.
+- [Node.js](https://nodejs.org/) – Backend runtime.
+- [Prisma](https://www.prisma.io/) – Type-safe ORM for database access.
+- [Zod](https://zod.dev/) – Type-safe schema validation for forms and backend logic.
+- [PostgreSQL](https://www.postgresql.org/) – Relational database.
+- [Tailwind CSS](https://tailwindcss.com/) – Utility-first CSS for rapid UI.
+- [Jest](https://jestjs.io/) & [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) – Testing.
+- [React Query](https://tanstack.com/query/latest) – Data fetching and server state caching.
+- [Docker](https://www.docker.com/) – Local database development.
 
 _These tools were chosen for their modern ecosystem, type safety, active community and rapid development capabilities._
 
 ---
 
-## 🔧 Setup instructions
+## Setup Instructions
 
 ### 1. Prerequisites
 
@@ -39,30 +37,30 @@ _These tools were chosen for their modern ecosystem, type safety, active communi
 - pnpm
 - Docker (for local Postgres)
 
-### 2. Environment setup
+### 2. Environment Setup
 
 - Copy `.env.example` to `.env` and fill in required values (e.g., `DATABASE_URL`).
 
-### 3. Install dependencies
+### 3. Install Dependencies
 
 ```sh
 pnpm install
 ```
 
-### 4. Start the database
+### 4. Start the Database
 
 ```sh
 docker compose -f develop/docker-compose.yaml up -d
 ```
 
-### 5. Run migrations & seed data
+### 5. Run Migrations & Seed Data
 
 ```sh
 pnpm db:dev:migrate
 pnpm db:seed
 ```
 
-### 6. Start the development server
+### 6. Start the Development Server
 
 ```sh
 pnpm dev
@@ -72,9 +70,9 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## 🎬 Features & Implementation
+## Features & Implementation
 
-### **Video List Page**
+### Video List Page
 
 - **Grid layout** of videos (responsive, mobile & desktop).
 - **Displays:** title, created_at, tags, duration, views, thumbnail image.
@@ -86,14 +84,14 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 - **Empty state:** clear message if no results.
 - **UI/UX:** All interactive elements are accessible (proper labels, keyboard navigation, ARIA patterns), and the design is responsive and user-friendly.
 
-### **Video Creation Page**
+### Video Creation Page
 
 - **Form:** input for title (required), duration (required), tags (optional, 0 or more).
 - **Auto-set:** created_at, default/placeholder for thumbnail, duration, views.
 - **Validation:** client-side (Zod) and server-side.
 - **Feedback:** disables submit button while submitting, shows errors if any.
 
-### **Data flow**
+### Data Flow
 
 - **No REST API layer:** The frontend directly calls backend/server functions (e.g., `getVideoListByCriteria`, `createVideo`) using Next.js server actions and React Query.
 - **React Query:** Handles data fetching and server state caching.
@@ -102,7 +100,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## 📦 Code structure & modularity
+## Code Structure & Modularity
 
 - **Logical organization:**
   - `src/db/` – Database access, types, and validation schemas.
@@ -119,7 +117,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## 📘 Assumptions & trade-offs
+## Assumptions & Trade-offs
 
 - **No pagination:** All videos are returned in a single list for simplicity.
 - **Search:** Substring matching on the title (not full-text).
@@ -130,7 +128,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## 🚀 Future Improvements
+## Future Improvements
 
 - Add full-text search with [OpenSearch](https://opensearch.org/) for better search experience.
 - Add pagination to video lists for scalability.
@@ -144,7 +142,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## 🧪 Testing
+## Testing
 
 - **Jest & React Testing Library** are used for both backend and frontend tests.
 - **Examples included:**
@@ -155,7 +153,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## 👩‍💻 Developer Experience & Workflow
+## Developer Experience & Workflow
 
 - **Prettier** and **ESLint** are set up and enforced for consistent code style and formatting.
 - **TypeScript** is used throughout for type safety and better developer feedback.
@@ -172,7 +170,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## 💡 Tips for Reviewers
+## Tips for Reviewers
 
 - The codebase prioritizes clarity and maintainability.
 - Trade-offs and simplifications are documented above.
