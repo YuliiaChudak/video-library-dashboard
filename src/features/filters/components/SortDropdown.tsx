@@ -1,5 +1,5 @@
 import { SelectDropdown } from '@/components/ui/SelectDropdown';
-import type { SortOrder } from '@/features/video/types';
+import { OrderByValues, SortOrder } from '@/db/types';
 
 interface SortDropdownProps {
   value: SortOrder;
@@ -8,8 +8,8 @@ interface SortDropdownProps {
 
 export function SortDropdown({ value, onChange }: SortDropdownProps) {
   const sortOptions = [
-    { value: 'newest', label: 'Newest First' },
-    { value: 'oldest', label: 'Oldest First' },
+    { value: OrderByValues.Newest, label: 'Newest First' },
+    { value: OrderByValues.Oldest, label: 'Oldest First' },
   ];
 
   const handleSelectionChange = (selectedValues: string[]) => {

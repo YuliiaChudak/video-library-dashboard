@@ -2,18 +2,15 @@
 
 import { useQuery } from '@tanstack/react-query';
 import { getVideoListByCriteria } from '@/db/videos';
-import type { SortOrder, Video } from '../types';
+import type { SortOrder, Video } from '@/db/types';
 import { VideoCard } from './VideoCard';
 import { VideoSkeleton } from './VideoSkeleton';
 import type { FiltersFormValues } from '@/features/filters/hooks/useFiltersForm';
 import { FiltersPanel } from '@/features/filters/components/FiltersPanel';
 import { useSearchParams } from 'next/navigation';
 import type { ReadonlyURLSearchParams } from 'next/navigation';
-import {
-  DefaultOrderValue,
-  QueryParamsNames,
-} from '@/features/filters/constants';
-import { useDebounce } from '@/features/filters/hooks/use-debounce';
+import { DefaultOrderValue, QueryParamsNames } from '@/db/types';
+import { useDebounce } from '@/features/filters/hooks/useDebounce';
 import { QueryProvider } from '@/components/query/QueryProvider';
 
 function extractValuesFromSearchParams(

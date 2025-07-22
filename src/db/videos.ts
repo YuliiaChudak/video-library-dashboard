@@ -1,8 +1,8 @@
 'use server';
 
 import { prisma } from './prisma';
-import type { Video } from '@/features/video/types';
-import { DefaultOrderValue } from '@/features/filters/constants';
+import type { Video } from '@/db/types';
+import { DefaultOrderValue } from '@/db/types';
 import {
   VideoListCriteria,
   VideoCreateInput,

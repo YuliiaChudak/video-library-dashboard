@@ -3,19 +3,16 @@ import Link from 'next/link';
 
 type ButtonLinkVariant = 'primary' | 'secondary';
 
-type ButtonLinkProps = {
+interface ButtonLinkProps extends React.RefAttributes<HTMLAnchorElement> {
   children: React.ReactNode;
   href: string;
   variant?: ButtonLinkVariant;
-  className?: string;
-  'aria-label'?: string;
-};
+}
 
 export function ButtonLink({
   children,
   href,
   variant = 'primary',
-  className = '',
   ...props
 }: ButtonLinkProps) {
   const getVariantClasses = () => {
@@ -29,11 +26,7 @@ export function ButtonLink({
   };
 
   return (
-    <Link
-      href={href}
-      className={`${getVariantClasses()} ${className}`}
-      {...props}
-    >
+    <Link href={href} className={getVariantClasses()} {...props}>
       {children}
     </Link>
   );

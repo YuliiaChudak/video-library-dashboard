@@ -46,9 +46,6 @@ jobs:
       - name: 'Verify formatting'
         run: pnpm format:ci
 
-      - name: 'Verify formatting'
-        run: pnpm format:ci
-
       - name: Run tests and generate JUnit report
         run: pnpm test:ci
 
