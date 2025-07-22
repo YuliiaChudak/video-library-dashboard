@@ -120,7 +120,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 - **No pagination:** All videos are returned in a single list for simplicity.
 - **Search:** Substring matching on the title (not full-text).
 - **No video details page/modal:** Focused on core flows.
-- **Error handling:** Basic, but user-friendly. (See below for future improvements.)
+- **Error handling:** Basic, but user-friendly.
 - **Testing:** Only core flows are tested; more coverage would be added with more time.
 - **API:** Data is fetched by directly calling backend functions from the frontend (no separate API endpoints). This is a common and efficient pattern in Next.js projects.
 
