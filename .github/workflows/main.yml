@@ -1,9 +1,8 @@
-name: 'Pipeline: Pull Request'
+name: 'Pipeline: Main'
 permissions:
   contents: write
   pull-requests: write
   checks: write
-  deployments: write
 
 on:
   push:
@@ -49,6 +48,15 @@ jobs:
 
       - name: 'Verify formatting'
         run: pnpm format:ci
+
+      - name: Run tests and generate JUnit report
+        run: pnpm test:ci
+
+      - name: Upload test report
+        uses: actions/upload-artifact@v4
+        with:
+          name: junit-report
+          path: ./test-results/junit.xml
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
